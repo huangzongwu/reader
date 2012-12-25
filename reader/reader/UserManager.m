@@ -10,8 +10,14 @@
 
 @implementation UserManager
 
--(NSString *) getPredicate {
-    return @"type=1 AND id=1";
+-(id) initWithDBContext:(NSManagedObjectContext *)ctx {
+    self = [super initWithDBContext:ctx];
+    if (self) {
+        dataType = 1;
+        dataId = @"1";
+        [super loadData];
+    }
+    return self;
 }
 
 -(NSMutableDictionary *) getEmptyObject {

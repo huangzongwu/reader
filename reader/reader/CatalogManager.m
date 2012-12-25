@@ -10,15 +10,12 @@
 
 @implementation CatalogManager
 
-//-(NSString *) getPredicate {
-//    return @"type=3 AND id=1";
-//}
-
 -(id) initWithDBContext:(NSManagedObjectContext *)ctx {
     self = [super initWithDBContext:ctx];
     if (self) {
         dataType = 3;
         dataId = @"1";
+        [super loadData];
     }
     return self;
 }

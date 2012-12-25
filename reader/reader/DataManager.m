@@ -23,7 +23,6 @@
         dbCtx = ctx;
         data = nil;
         modified = NO;
-        [self loadData];
     }
     return self;
 }
@@ -52,7 +51,7 @@
 
 -(NSString *) getPredicate {
     // To be implemented by derived classes
-    return [NSString stringWithFormat:@"type=%d AND id=%@", dataType, dataId];
+    return [NSString stringWithFormat:@"type=%d AND id='%@'", dataType, dataId];
 }
 
 -(NSMutableDictionary *) getEmptyObject {

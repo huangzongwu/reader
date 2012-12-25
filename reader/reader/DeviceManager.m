@@ -11,6 +11,16 @@
 
 @implementation DeviceManager
 
+-(id) initWithDBContext:(NSManagedObjectContext *)ctx {
+    self = [super initWithDBContext:ctx];
+    if (self) {
+        dataType = 2;
+        dataId = @"1";
+        [super loadData];
+    }
+    return self;
+}
+
 -(NSString *) getPredicate {
     return @"type=2 AND id=1";
 }

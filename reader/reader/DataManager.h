@@ -24,6 +24,7 @@
 @property (strong, atomic) NSMutableDictionary *data;
 
 -(id) initWithDBContext:(NSManagedObjectContext *) ctx;
+-(void) loadData;
 -(NSString *) getPredicate;
 -(NSMutableDictionary *) getEmptyObject;
 -(BOOL) hasData;

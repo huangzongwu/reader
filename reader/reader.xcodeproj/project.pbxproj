@@ -15,6 +15,8 @@
 		A177A6AB168819E10034162B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A177A6AA168819E10034162B /* AppDelegate.m */; };
 		A177A6AE168819E10034162B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A177A6AD168819E10034162B /* ViewController.m */; };
 		A177A6B1168819E10034162B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A177A6AF168819E10034162B /* ViewController.xib */; };
+		A18ED2AA168947ED00C587A9 /* BookInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A18ED2A9168947ED00C587A9 /* BookInfoManager.m */; };
+		A18ED2AE1689498000C587A9 /* PaymentInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */; };
 		A1EBA7B816881AC300BFBC58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBA7B716881AC300BFBC58 /* CoreData.framework */; };
 		A1EBA7BD16881B2700BFBC58 /* Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA7BB16881B2700BFBC58 /* Reader.xcdatamodeld */; };
 		A1EBA7C316881E2400BFBC58 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA7C216881E2400BFBC58 /* Image.m */; };
@@ -38,6 +40,8 @@
 		A1EBA8231688533400BFBC58 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA8221688533400BFBC58 /* DataManager.m */; };
 		A1EBA8261688591B00BFBC58 /* CatalogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA8251688591B00BFBC58 /* CatalogManager.m */; };
 		A1EBA82916888F7900BFBC58 /* AppPreferenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA82816888F7900BFBC58 /* AppPreferenceManager.m */; };
+		A1EBA82C16889D0800BFBC58 /* BookPreferenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA82B16889D0800BFBC58 /* BookPreferenceManager.m */; };
+		A1EBA82F1688BAA600BFBC58 /* WishListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA82E1688BAA500BFBC58 /* WishListManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		A177A6AC168819E10034162B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A177A6AD168819E10034162B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A177A6B0168819E10034162B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		A18ED2A8168947ED00C587A9 /* BookInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoManager.h; sourceTree = "<group>"; };
+		A18ED2A9168947ED00C587A9 /* BookInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoManager.m; sourceTree = "<group>"; };
+		A18ED2AC1689498000C587A9 /* PaymentInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentInfoManager.h; sourceTree = "<group>"; };
+		A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentInfoManager.m; sourceTree = "<group>"; };
 		A1EBA7B716881AC300BFBC58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1EBA7BC16881B2700BFBC58 /* Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reader.xcdatamodel; sourceTree = "<group>"; };
 		A1EBA7C116881E2400BFBC58 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -99,6 +107,10 @@
 		A1EBA8251688591B00BFBC58 /* CatalogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogManager.m; sourceTree = "<group>"; };
 		A1EBA82716888F7900BFBC58 /* AppPreferenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPreferenceManager.h; sourceTree = "<group>"; };
 		A1EBA82816888F7900BFBC58 /* AppPreferenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPreferenceManager.m; sourceTree = "<group>"; };
+		A1EBA82A16889D0800BFBC58 /* BookPreferenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPreferenceManager.h; sourceTree = "<group>"; };
+		A1EBA82B16889D0800BFBC58 /* BookPreferenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookPreferenceManager.m; sourceTree = "<group>"; };
+		A1EBA82D1688BAA500BFBC58 /* WishListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishListManager.h; sourceTree = "<group>"; };
+		A1EBA82E1688BAA500BFBC58 /* WishListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishListManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +252,14 @@
 				A1EBA8251688591B00BFBC58 /* CatalogManager.m */,
 				A1EBA82716888F7900BFBC58 /* AppPreferenceManager.h */,
 				A1EBA82816888F7900BFBC58 /* AppPreferenceManager.m */,
+				A1EBA82A16889D0800BFBC58 /* BookPreferenceManager.h */,
+				A1EBA82B16889D0800BFBC58 /* BookPreferenceManager.m */,
+				A1EBA82D1688BAA500BFBC58 /* WishListManager.h */,
+				A1EBA82E1688BAA500BFBC58 /* WishListManager.m */,
+				A18ED2A8168947ED00C587A9 /* BookInfoManager.h */,
+				A18ED2A9168947ED00C587A9 /* BookInfoManager.m */,
+				A18ED2AC1689498000C587A9 /* PaymentInfoManager.h */,
+				A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -331,6 +351,10 @@
 				A1EBA8231688533400BFBC58 /* DataManager.m in Sources */,
 				A1EBA8261688591B00BFBC58 /* CatalogManager.m in Sources */,
 				A1EBA82916888F7900BFBC58 /* AppPreferenceManager.m in Sources */,
+				A1EBA82C16889D0800BFBC58 /* BookPreferenceManager.m in Sources */,
+				A1EBA82F1688BAA600BFBC58 /* WishListManager.m in Sources */,
+				A18ED2AA168947ED00C587A9 /* BookInfoManager.m in Sources */,
+				A18ED2AE1689498000C587A9 /* PaymentInfoManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,8 @@
 #import "UserManager.h"
 #import "DeviceManager.h"
 #import "CatalogManager.h"
+#import "AppPreferenceManager.h"
+#import "BookPreferenceManager.h"
 
 #import "ViewController.h"
 
@@ -38,16 +40,12 @@
 }
 
 -(void) doTest {
-    CatalogManager *cm = [[CatalogManager alloc] initWithDBContext:self.managedObjectContext];
-   // NSArray *cats = [cm getCategories];
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
-    [data setObject:[[NSMutableArray alloc] init]  forKey:@"categories"];
-    [[data objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"123", @"cid",@"Myth",@"name", nil] ];
-    [[data objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"124", @"cid",@"FolkStories",@"name", nil] ];
-    [data setObject:[[NSMutableDictionary alloc] init] forKey:@"cat-tree"];
-    [cm setCategories:data];
-    [cm save];
-   
+    BookPreferenceManager *bm = [[BookPreferenceManager alloc] initWithDBContext:self.managedObjectContext forBookWithId:@"b1"];
+    //[bm addBookMark:@"bm-1" inChapter:@"chapter01"];
+    //[bm addBookMark:@"bm-2" inChapter:@"chapter01"];
+    //[bm addBookMark:@"bm-3" inChapter:@"chapter02"];
+    [bm removeBookMark:@"bm-1" inChapter:@"chapter01"];
+    [bm save];
     NSLog(@"TEST OK...");
 }
 

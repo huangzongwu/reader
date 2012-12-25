@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "reader/AppDelegate.m"
-         timestampString = "378045692.432023"
+         timestampString = "378056491.268836"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-doTest"
          landmarkType = "5">
       </FileBreakpoint>

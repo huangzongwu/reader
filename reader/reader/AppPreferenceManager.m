@@ -15,6 +15,7 @@
     if (self) {
         dataType = 4;
         dataId = @"1";
+        [super loadData];
     }
     return self;
 }
@@ -41,40 +42,100 @@
 }
 
 -(void) setNightDisplayMode:(BOOL) nightMode {
-    if (nightMode == 1)
+    if (nightMode == 1) {
         [self.data setObject:[NSNumber numberWithInt:nightMode] forKey:@"nightmode"];
-        
-    [self.data setObject:[NSNumber numberWithInt:0] forKey:@"nightmode"];
+    } else {
+        [self.data setObject:[NSNumber numberWithInt:0] forKey:@"nightmode"];
+    }
+    modified = YES;
 }
 
 -(int) getOrientationLockMode {
-    
+    return [[self.data objectForKey:@"orientationlock"] intValue];
 }
 
--(void) setOrientationLockMode:(int) orientaitonLockMode {}
+-(void) setOrientationLockMode:(int) orientaitonLockMode {
+    if ( (orientaitonLockMode < 0) || (orientaitonLockMode > 2) ) 
+        return;
+    [self.data   setObject:[NSNumber numberWithInt:orientaitonLockMode] forKey:@"orientationlock"];
+    modified = YES;
+}
 
--(NSString *) getHighLightBackGroundColor {}
--(void) setHighLightBackGroundColor:(NSString *) color {}
+-(NSString *) getHighLightBackGroundColor {
+     return [self.data objectForKey:@"hlbgcolor"];   
+}
 
--(NSString *) getHighLightForeGroundColor {}
--(void) setHighLightForeGroundColor:(NSString *) color {}
+-(void) setHighLightBackGroundColor:(NSString *) color {
+    [self.data setObject:color forKey:@"hlbgcolor"];
+    modified = YES;
+}
 
--(int) getHighLightTextDecorationMode {}
--(void) setHighLightTextDecorationMode:(int) textDecorationMode {}
+-(NSString *) getHighLightForeGroundColor {
+    return [self.data objectForKey:@"hlfgcolor"];
+}
 
--(NSString *) getNoteForeGroundColor {}
--(void) setNoteForeGroundColor:(NSString *) color {}
+-(void) setHighLightForeGroundColor:(NSString *) color {
+    [self.data setObject:color forKey:@"hlfgcolor"];
+    modified = YES;
+}
 
--(NSString *) getNoteBackGroundColor {}
--(void) setNoteBackGroundColor:(NSString *) color {}
+-(int) getHighLightTextDecorationMode {
+    return [[self.data objectForKey:@"hltxtdecoration"] intValue];
+}
 
--(int) getNoteTextDecrorationMode {}
--(void) setNoteTextDecorationMode:(int) textDecorationMode {}
+-(void) setHighLightTextDecorationMode:(int) textDecorationMode {
+    if ( (textDecorationMode < 0) || (textDecorationMode > 2) ) 
+        return;
+    
+    [self.data setObject:[NSNumber numberWithInt:textDecorationMode] forKey:@"hltxtdecoration"];
+    modified = YES;
+}
 
--(NSString *) getFontFamily {}
--(void) setFamily:(NSString *) fontFamily {}
+-(NSString *) getNoteForeGroundColor {
+    return [self.data objectForKey:@"ntfgcolor"];
+}
 
--(float) getFontSize {}
--(void) setFontSize:(float) fontSize {}
+-(void) setNoteForeGroundColor:(NSString *) color {
+    [self.data setObject:color forKey:@"ntfgcolor"];
+    modified = YES;
+}
+
+-(NSString *) getNoteBackGroundColor {
+  return [self.data objectForKey:@"ntbgcolor"];  
+}
+
+-(void) setNoteBackGroundColor:(NSString *) color {
+    [self.data setObject:color forKey:@"ntbgcolor"];
+    modified = YES;
+}
+
+-(int) getNoteTextDecrorationMode {
+    return [[self.data objectForKey:@"nttxtdecoration"] intValue];
+}
+
+-(void) setNoteTextDecorationMode:(int) textDecorationMode {
+    if ( (textDecorationMode < 0) || (textDecorationMode > 3) ) 
+        return;
+    [self.data setObject:[NSNumber numberWithInt:textDecorationMode] forKey:@"nttxtdecoration"];
+    modified = YES;
+}
+
+-(NSString *) getFontFamily {
+    return [self.data objectForKey:@"fontfamily"];
+}
+
+-(void) setFamily:(NSString *) fontFamily {
+    [self.data setObject:fontFamily forKey:@"fontfamily"];
+    modified = YES;
+}
+
+-(float) getFontSize {
+    return [[self.data objectForKey:@"fontsize"] floatValue];
+}
+
+-(void) setFontSize:(float) fontSize {
+    [self.data setObject:[NSNumber numberWithFloat:fontSize] forKey:@"fontsize"];
+    modified = YES;
+}
 
 @end
