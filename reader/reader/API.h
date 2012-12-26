@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface API : NSObject
+@interface API : NSObject {
+
+}
+
++(id) sendPostRequestTo:(NSString *) targetURL withData:(NSDictionary *) postData;
+
++(NSDictionary *) categories;
 
 @end

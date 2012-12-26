@@ -10,4 +10,7 @@
 
 @interface Utils : NSObject
 
+
++(NSString *) urlEscapedString:(NSString *) originalString;
+
 @end

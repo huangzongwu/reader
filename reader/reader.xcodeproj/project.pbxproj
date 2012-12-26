@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14C010A168AC19600E566D8 /* CovenantNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0109168AC19600E566D8 /* CovenantNotificationCenter.m */; };
+		A14C010F168AC80500E566D8 /* NSNotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C010E168AC80500E566D8 /* NSNotificationCenterAdditions.m */; };
+		A14C0112168AC8A600E566D8 /* CovenantNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0111168AC8A600E566D8 /* CovenantNotification.m */; };
+		A14C0118168ADE5F00E566D8 /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0117168ADE5F00E566D8 /* Worker.m */; };
+		A14C011C168AE26C00E566D8 /* CovenantWorkers.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C011B168AE26C00E566D8 /* CovenantWorkers.m */; };
+		A14C0121168AF46100E566D8 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0120168AF46100E566D8 /* API.m */; };
+		A14C0125168AF69D00E566D8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0124168AF69D00E566D8 /* Utils.m */; };
 		A177A69B168819E10034162B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69A168819E10034162B /* UIKit.framework */; };
 		A177A69D168819E10034162B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69C168819E10034162B /* Foundation.framework */; };
 		A177A69F168819E10034162B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69E168819E10034162B /* CoreGraphics.framework */; };
@@ -17,6 +24,7 @@
 		A177A6B1168819E10034162B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A177A6AF168819E10034162B /* ViewController.xib */; };
 		A18ED2AA168947ED00C587A9 /* BookInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A18ED2A9168947ED00C587A9 /* BookInfoManager.m */; };
 		A18ED2AE1689498000C587A9 /* PaymentInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */; };
+		A18ED2B1168953BA00C587A9 /* BookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A18ED2B0168953BA00C587A9 /* BookManager.m */; };
 		A1EBA7B816881AC300BFBC58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBA7B716881AC300BFBC58 /* CoreData.framework */; };
 		A1EBA7BD16881B2700BFBC58 /* Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA7BB16881B2700BFBC58 /* Reader.xcdatamodeld */; };
 		A1EBA7C316881E2400BFBC58 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBA7C216881E2400BFBC58 /* Image.m */; };
@@ -45,6 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A14C0108168AC19600E566D8 /* CovenantNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CovenantNotificationCenter.h; sourceTree = "<group>"; };
+		A14C0109168AC19600E566D8 /* CovenantNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CovenantNotificationCenter.m; sourceTree = "<group>"; };
+		A14C010D168AC80500E566D8 /* NSNotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenterAdditions.h; sourceTree = "<group>"; };
+		A14C010E168AC80500E566D8 /* NSNotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterAdditions.m; sourceTree = "<group>"; };
+		A14C0110168AC8A600E566D8 /* CovenantNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CovenantNotification.h; sourceTree = "<group>"; };
+		A14C0111168AC8A600E566D8 /* CovenantNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CovenantNotification.m; sourceTree = "<group>"; };
+		A14C0116168ADE5F00E566D8 /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
+		A14C0117168ADE5F00E566D8 /* Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Worker.m; sourceTree = "<group>"; };
+		A14C011A168AE26C00E566D8 /* CovenantWorkers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CovenantWorkers.h; sourceTree = "<group>"; };
+		A14C011B168AE26C00E566D8 /* CovenantWorkers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CovenantWorkers.m; sourceTree = "<group>"; };
+		A14C011F168AF46100E566D8 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		A14C0120168AF46100E566D8 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		A14C0123168AF69D00E566D8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		A14C0124168AF69D00E566D8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		A177A696168819E10034162B /* reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A177A69A168819E10034162B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A177A69C168819E10034162B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +84,8 @@
 		A18ED2A9168947ED00C587A9 /* BookInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoManager.m; sourceTree = "<group>"; };
 		A18ED2AC1689498000C587A9 /* PaymentInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentInfoManager.h; sourceTree = "<group>"; };
 		A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentInfoManager.m; sourceTree = "<group>"; };
+		A18ED2AF168953B900C587A9 /* BookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookManager.h; sourceTree = "<group>"; };
+		A18ED2B0168953BA00C587A9 /* BookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookManager.m; sourceTree = "<group>"; };
 		A1EBA7B716881AC300BFBC58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1EBA7BC16881B2700BFBC58 /* Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reader.xcdatamodel; sourceTree = "<group>"; };
 		A1EBA7C116881E2400BFBC58 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -128,6 +152,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A14C0119168AE24800E566D8 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				A14C0116168ADE5F00E566D8 /* Worker.h */,
+				A14C0117168ADE5F00E566D8 /* Worker.m */,
+				A14C011A168AE26C00E566D8 /* CovenantWorkers.h */,
+				A14C011B168AE26C00E566D8 /* CovenantWorkers.m */,
+			);
+			name = Workers;
+			sourceTree = "<group>";
+		};
+		A14C011D168AF3C900E566D8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A14C0110168AC8A600E566D8 /* CovenantNotification.h */,
+				A14C0111168AC8A600E566D8 /* CovenantNotification.m */,
+				A14C0108168AC19600E566D8 /* CovenantNotificationCenter.h */,
+				A14C0109168AC19600E566D8 /* CovenantNotificationCenter.m */,
+				A14C010D168AC80500E566D8 /* NSNotificationCenterAdditions.h */,
+				A14C010E168AC80500E566D8 /* NSNotificationCenterAdditions.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		A14C011E168AF3F100E566D8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A14C011F168AF46100E566D8 /* API.h */,
+				A14C0120168AF46100E566D8 /* API.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		A14C0122168AF68F00E566D8 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				A14C0123168AF69D00E566D8 /* Utils.h */,
+				A14C0124168AF69D00E566D8 /* Utils.m */,
+			);
+			name = others;
+			sourceTree = "<group>";
+		};
 		A177A68B168819E00034162B = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +225,10 @@
 		A177A6A0168819E10034162B /* reader */ = {
 			isa = PBXGroup;
 			children = (
+				A14C0122168AF68F00E566D8 /* others */,
+				A14C011E168AF3F100E566D8 /* API */,
+				A14C011D168AF3C900E566D8 /* Notifications */,
+				A14C0119168AE24800E566D8 /* Workers */,
 				A1EBA7CD1688213200BFBC58 /* ThirdParty */,
 				A1EBA7BA16881AF800BFBC58 /* DB */,
 				A177A6A9168819E10034162B /* AppDelegate.h */,
@@ -260,6 +330,8 @@
 				A18ED2A9168947ED00C587A9 /* BookInfoManager.m */,
 				A18ED2AC1689498000C587A9 /* PaymentInfoManager.h */,
 				A18ED2AD1689498000C587A9 /* PaymentInfoManager.m */,
+				A18ED2AF168953B900C587A9 /* BookManager.h */,
+				A18ED2B0168953BA00C587A9 /* BookManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -355,6 +427,14 @@
 				A1EBA82F1688BAA600BFBC58 /* WishListManager.m in Sources */,
 				A18ED2AA168947ED00C587A9 /* BookInfoManager.m in Sources */,
 				A18ED2AE1689498000C587A9 /* PaymentInfoManager.m in Sources */,
+				A18ED2B1168953BA00C587A9 /* BookManager.m in Sources */,
+				A14C010A168AC19600E566D8 /* CovenantNotificationCenter.m in Sources */,
+				A14C010F168AC80500E566D8 /* NSNotificationCenterAdditions.m in Sources */,
+				A14C0112168AC8A600E566D8 /* CovenantNotification.m in Sources */,
+				A14C0118168ADE5F00E566D8 /* Worker.m in Sources */,
+				A14C011C168AE26C00E566D8 /* CovenantWorkers.m in Sources */,
+				A14C0121168AF46100E566D8 /* API.m in Sources */,
+				A14C0125168AF69D00E566D8 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

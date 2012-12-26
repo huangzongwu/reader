@@ -8,6 +8,20 @@
 
 #import "NSNotificationCenterAdditions.h"
 
-@implementation NSNotificationCenterAdditions
+@implementation NSNotificationCenter (NSNotificationCenterAdditions)
+
+-(void) _postMyNotification:(NSNotification *) notification
+{
+	[[[self class] defaultCenter] postNotification:notification];
+}
+
+- (void) postNotificationOnMainThread:(NSNotification *) notification waitUntilDone:(BOOL) wait
+{
+	if ([NSThread isMainThread])
+		return [self postNotification:notification];
+	[self performSelectorOnMainThread:@selector(_postMyNotification:) withObject:notification waitUntilDone:wait];
+}
 
 @end
+
+

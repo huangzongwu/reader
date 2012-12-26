@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNotificationCenterAdditions : NSObject
+@interface NSNotificationCenter (NSNotificationCenterAdditions)
+
+-(void) _postMyNotification:(NSNotification *) notification;
+- (void) postNotificationOnMainThread:(NSNotification *) notification waitUntilDone:(BOOL) wait;
 
 @end
