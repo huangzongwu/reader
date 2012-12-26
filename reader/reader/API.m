@@ -11,6 +11,9 @@
 #import "SBJson.h"
 #import "Utils.h"
 
+// TODO: server address should be configurable
+NSString *API_SERVER = @"http://199.189.84.119/japi";
+
 @implementation API
 
 
@@ -56,11 +59,137 @@
     }
 }
 
-+(NSDictionary *) categories {
-    NSString *url = [NSString stringWithFormat:@"http://199.189.84.119/japi/catalog/all"];
+#pragma mark - signup
++(NSDictionary *) signup:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - signin
++(NSDictionary *) signin:(NSDictionary *) userData {
+    return nil;
+}
+ 
+#pragma mark - signout
++(NSDictionary *) signout:(NSDictionary *) userdata {
+    return nil;
+}
+
+#pragma mark - activate account
++(NSDictionary *) activateAccount:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - getAccount Info
++(NSDictionary *) getAccountInfo:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - update account infi
++(NSDictionary *) updateAccountInfo:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - change password
++(NSDictionary *) changePassword:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - reset password
++(NSDictionary *) resetPassword:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - update device name
++(NSDictionary *) updateDeviceName:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - unlink device
++(NSDictionary *) unlinkDevice:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get catalogue
++(NSDictionary *) getCatalogue {
+    NSString *url = [NSString stringWithFormat:@"%@/catalog/all", API_SERVER];
     
     id respData = [API sendPostRequestTo:url withData:nil];
-    return (respData == nil) ? nil: (NSDictionary *) respData;
+    return (respData == nil) ? nil: (NSDictionary *) respData; 
+}
+
+#pragma mark - get catalogue quick books
++(NSDictionary *) getCatalogueQuickBooks:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get catalog books
++(NSDictionary *) getCatalogueBooks:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - catalogue search
++(NSDictionary *) catalogueSearch:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - inapp purchase
++(NSDictionary *) bookPurchased:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - transaction history
++(NSDictionary *) getTransactionHistory:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get my books
++(NSDictionary *) getMyBooks:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - download a book
++(NSDictionary *) downloadBook:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get Book Details
++(NSDictionary *) getBookDetails:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get book summary info
++(NSDictionary *) getBookSummary:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - like a book
++(NSDictionary *) likeBook:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get my likes 
++(NSDictionary *) getMyLikes:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - unlike a book
++(NSDictionary *) unlikeBook:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - add a book to wishlist
++(NSDictionary *) addToWishList:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - get my wishlist
++(NSDictionary *) getMyWishList:(NSDictionary *) userData {
+    return nil;
+}
+
+#pragma mark - remove from my wishlist
++(NSDictionary *) removeFromWishList:(NSDictionary *) userData {
+    return nil;
 }
 
 @end

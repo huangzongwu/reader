@@ -42,7 +42,7 @@
 }
 
 -(void) doTest {
-   NSDictionary *categories = [API categories];
+   NSDictionary *categories = [API getCatalogue];
    NSLog(@"categoroes : %@", categories);
 }
 
