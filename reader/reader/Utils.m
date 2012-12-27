@@ -37,4 +37,15 @@
 	return escaped;
 }
 
+#pragma mark - device details
++(NSDictionary *) getDeviceDetails {
+    // TODO: remove below hard coded values
+    NSMutableDictionary *obj = [[NSMutableDictionary alloc] init];
+    [obj setObject:@"ios" forKey:@"dos"];
+    [obj setObject:@"6.0" forKey:@"dosv"];
+    [obj setObject:@"ipad" forKey:@"dtype"];
+    [obj setObject:@"apple" forKey:@"dmf"];
+    return obj;
+}
+
 @end

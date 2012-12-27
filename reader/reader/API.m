@@ -10,11 +10,14 @@
 
 #import "SBJson.h"
 #import "Utils.h"
+#import "CovenantNotification.h"
+#import "NSNotificationCenterAdditions.h"
 
 // TODO: server address should be configurable
 NSString *API_SERVER = @"http://199.189.84.119/japi";
 
 @implementation API
+
 
 
 +(id) sendPostRequestTo:(NSString *) targetURL withData:(NSDictionary *) postData { 
@@ -60,13 +63,92 @@ NSString *API_SERVER = @"http://199.189.84.119/japi";
 }
 
 #pragma mark - signup
-+(NSDictionary *) signup:(NSDictionary *) userData {
-    return nil;
++(void) signup:(NSDictionary *) userData {
+    NSString *URL = [NSString stringWithFormat:@"%@/user/signup", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"email",@"name",@"pwd",
+                                    @"did",nil];
+    for(NSString *field in fields) {
+        if ( ![userData objectForKey:field]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                            field,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_SIGNUP_RESULT_FAILED 
+                                                                object:nil
+                                                                userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return;
+        }
+    }
+    
+    NSMutableDictionary *data =  [NSMutableDictionary dictionaryWithDictionary:userData]; 
+    [data addEntriesFromDictionary:[Utils getDeviceDetails] ];
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                            @"internal server error", @"em",nil];
+                                            
+    id respData = [API sendPostRequestTo:URL withData:data];
+    if ( !respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNUP_RESULT_FAILED 
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNUP_RESULT_FAILED 
+                                                        object:nil 
+                                                        userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNUP_RESULT_OK 
+                                                        object:nil 
+                                                        userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - signin
-+(NSDictionary *) signin:(NSDictionary *) userData {
-    return nil;
++(void) signin:(NSDictionary *) userData {
+    
+    NSString *URL = [NSString stringWithFormat:@"%@/user/signin", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"repeat",@"email",@"pwd",@"did", nil];
+    for(NSString *field in fields) {
+        if (![userData objectForKey:field]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     field,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_SIGNIN_RESULT_FAILED 
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return;
+        }
+    }
+    
+    NSMutableDictionary *data =  [NSMutableDictionary dictionaryWithDictionary:userData]; 
+    [data addEntriesFromDictionary:[Utils getDeviceDetails] ];
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:URL withData:data];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNIN_RESULT_FAILED 
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNIN_RESULT_FAILED 
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_SIGNIN_RESULT_OK 
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
+    
 }
  
 #pragma mark - signout

@@ -15,6 +15,7 @@
 #import "AppPreferenceManager.h"
 #import "BookPreferenceManager.h"
 #import "CovenantWorkers.h"
+#import "CovenantNotificationCenter.h"
 #import "API.h"
 
 #import "ViewController.h"
@@ -23,6 +24,8 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+
+@synthesize notificationCenter;
 
 @synthesize managedObjectContext        = __managedObjectContext;
 @synthesize managedObjectModel          = __managedObjectModel;
@@ -42,8 +45,16 @@
 }
 
 -(void) doTest {
-   NSDictionary *categories = [API getCatalogue];
-   NSLog(@"categoroes : %@", categories);
+    self.notificationCenter = [[CovenantNotificationCenter alloc] init];
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:@"a01@a1.com",@"email", 
+                            @"d",@"src",
+                            @"ram",@"name",
+                            @"abc123", @"pwd",
+                            @"simd2",@"did",
+                            @"95656a1ec4b601212ae36292dad48fc3", @"sid",
+                            @"0", @"repeat", nil];
+    [API signin:d];
+    NSLog(@"Signup Request Made..");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

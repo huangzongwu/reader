@@ -20,7 +20,20 @@
     return self;
 }
 
+-(void) test {
+    NSNotificationCenter *ntCenter = [NSNotificationCenter defaultCenter];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNUP_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNUP_RESULT_FAILED object:nil];
+}
+
+-(void) testHandler:(NSNotification *) notification {
+    NSLog(@"Got notification... %@", notification);
+}
+
 -(void) listenForNotifications {
+    
+    [self test];
+
     NSNotificationCenter *ntCenter = [NSNotificationCenter defaultCenter];
     
     [ntCenter addObserver:self selector:@selector(handleSignUpNotification:) name:COVNOTIFICATION_SIGNUP object:nil];

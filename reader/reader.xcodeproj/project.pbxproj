@@ -14,6 +14,7 @@
 		A14C011C168AE26C00E566D8 /* CovenantWorkers.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C011B168AE26C00E566D8 /* CovenantWorkers.m */; };
 		A14C0121168AF46100E566D8 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0120168AF46100E566D8 /* API.m */; };
 		A14C0125168AF69D00E566D8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0124168AF69D00E566D8 /* Utils.m */; };
+		A14C0128168BEBD500E566D8 /* NAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A14C0127168BEBD500E566D8 /* NAPI.m */; };
 		A177A69B168819E10034162B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69A168819E10034162B /* UIKit.framework */; };
 		A177A69D168819E10034162B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69C168819E10034162B /* Foundation.framework */; };
 		A177A69F168819E10034162B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A177A69E168819E10034162B /* CoreGraphics.framework */; };
@@ -67,6 +68,8 @@
 		A14C0120168AF46100E566D8 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		A14C0123168AF69D00E566D8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A14C0124168AF69D00E566D8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		A14C0126168BEBD500E566D8 /* NAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPI.h; sourceTree = "<group>"; };
+		A14C0127168BEBD500E566D8 /* NAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPI.m; sourceTree = "<group>"; };
 		A177A696168819E10034162B /* reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A177A69A168819E10034162B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A177A69C168819E10034162B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -181,6 +184,8 @@
 			children = (
 				A14C011F168AF46100E566D8 /* API.h */,
 				A14C0120168AF46100E566D8 /* API.m */,
+				A14C0126168BEBD500E566D8 /* NAPI.h */,
+				A14C0127168BEBD500E566D8 /* NAPI.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				A14C011C168AE26C00E566D8 /* CovenantWorkers.m in Sources */,
 				A14C0121168AF46100E566D8 /* API.m in Sources */,
 				A14C0125168AF69D00E566D8 /* Utils.m in Sources */,
+				A14C0128168BEBD500E566D8 /* NAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

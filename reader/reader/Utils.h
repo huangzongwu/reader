@@ -12,5 +12,6 @@
 
 
 +(NSString *) urlEscapedString:(NSString *) originalString;
++(NSDictionary *) getDeviceDetails;
 
 @end

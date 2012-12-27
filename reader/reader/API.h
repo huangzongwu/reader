@@ -17,8 +17,8 @@ extern NSString *API_SERVER;
 +(id) sendPostRequestTo:(NSString *) targetURL withData:(NSDictionary *) postData;
 
 
-+(NSDictionary *) signup:(NSDictionary *) userData;
-+(NSDictionary *) signin:(NSDictionary *) userData;
++(void ) signup:(NSDictionary *) userData;
++(void) signin:(NSDictionary *) userData;
 +(NSDictionary *) signout:(NSDictionary *) userdata;
 +(NSDictionary *) activateAccount:(NSDictionary *) userData;
 +(NSDictionary *) getAccountInfo:(NSDictionary *) userData;
