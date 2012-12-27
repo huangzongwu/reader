@@ -46,14 +46,17 @@
 
 -(void) doTest {
     self.notificationCenter = [[CovenantNotificationCenter alloc] init];
-    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:@"a01@a1.com",@"email", 
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:@"a02@a1.com",@"email", 
                             @"d",@"src",
                             @"ram",@"name",
                             @"abc123", @"pwd",
-                            @"simd2",@"did",
-                            @"95656a1ec4b601212ae36292dad48fc3", @"sid",
-                            @"0", @"repeat", nil];
-    [API signin:d];
+                            @"simd3",@"did",
+                            @"9667a1647871f26fac68c9c9cc1cdaea", @"sid",
+                            @"1", @"repeat", 
+                            @"40,50",@"pids", 
+                            @"title,bid,pid,image-url",@"fields", nil];
+    //[API getCatalogueQuickBooks:[NSDictionary dictionaryWithObjectsAndKeys:@"7,8",@"cat_ids",@"5,5",@"counts", nil] ];
+    [API  getBookSummary:d];
     NSLog(@"Signup Request Made..");
 }
 

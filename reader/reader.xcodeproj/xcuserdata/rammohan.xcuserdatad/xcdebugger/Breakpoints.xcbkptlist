@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "reader/AppDelegate.m"
-         timestampString = "378271065.4587"
+         timestampString = "378276039.713395"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-doTest"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "reader/CovenantNotificationCenter.m"
-         timestampString = "378215121.047557"
+         timestampString = "378276039.713395"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
          landmarkName = "-testHandler:"
          landmarkType = "5">
       </FileBreakpoint>

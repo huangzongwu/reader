@@ -24,6 +24,26 @@
     NSNotificationCenter *ntCenter = [NSNotificationCenter defaultCenter];
     [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNUP_RESULT_OK object:nil];
     [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNUP_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNIN_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_SIGNIN_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_BOOKS_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_BOOKS_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_MY_BOOKS_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_MY_BOOKS_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_OK object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_BOOKS_SUMMARY_RESULT_FAILED object:nil];
+    [ntCenter addObserver:self selector:@selector(testHandler:) name:COVNOTIFICATION_GET_BOOKS_SUMMARY_RESULT_OK object:nil];
 }
 
 -(void) testHandler:(NSNotification *) notification {

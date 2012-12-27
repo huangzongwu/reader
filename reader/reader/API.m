@@ -152,126 +152,415 @@ NSString *API_SERVER = @"http://199.189.84.119/japi";
 }
  
 #pragma mark - signout
-+(NSDictionary *) signout:(NSDictionary *) userdata {
-    return nil;
++(void) signout:(NSDictionary *) userdata {
+
 }
 
 #pragma mark - activate account
-+(NSDictionary *) activateAccount:(NSDictionary *) userData {
-    return nil;
++(void) activateAccount:(NSDictionary *) userData {
+
 }
 
 #pragma mark - getAccount Info
-+(NSDictionary *) getAccountInfo:(NSDictionary *) userData {
-    return nil;
++(void) getAccountInfo:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/user/profile", API_SERVER];
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"sid",@"email",@"did", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_FAILED 
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return;
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_ACCOUNT_INFO_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
+    
 }
 
 #pragma mark - update account infi
-+(NSDictionary *) updateAccountInfo:(NSDictionary *) userData {
-    return nil;
++(void) updateAccountInfo:(NSDictionary *) userData {
+
 }
 
 #pragma mark - change password
-+(NSDictionary *) changePassword:(NSDictionary *) userData {
-    return nil;
++(void) changePassword:(NSDictionary *) userData {
+
 }
 
 #pragma mark - reset password
-+(NSDictionary *) resetPassword:(NSDictionary *) userData {
-    return nil;
++(void) resetPassword:(NSDictionary *) userData {
+
 }
 
 #pragma mark - update device name
-+(NSDictionary *) updateDeviceName:(NSDictionary *) userData {
-    return nil;
++(void) updateDeviceName:(NSDictionary *) userData {
+
 }
 
 #pragma mark - unlink device
-+(NSDictionary *) unlinkDevice:(NSDictionary *) userData {
-    return nil;
++(void) unlinkDevice:(NSDictionary *) userData {
+
 }
 
 #pragma mark - get catalogue
-+(NSDictionary *) getCatalogue {
++(void) getCatalogue {
     NSString *url = [NSString stringWithFormat:@"%@/catalog/all", API_SERVER];
     
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
     id respData = [API sendPostRequestTo:url withData:nil];
-    return (respData == nil) ? nil: (NSDictionary *) respData; 
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - get catalogue quick books
-+(NSDictionary *) getCatalogueQuickBooks:(NSDictionary *) userData {
-    return nil;
++(void) getCatalogueQuickBooks:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/catalog/quick_books", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"cat_ids",@"counts", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_FAILED 
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return;
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_QUICK_BOOKS_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
+    
 }
 
 #pragma mark - get catalog books
-+(NSDictionary *) getCatalogueBooks:(NSDictionary *) userData {
-    return nil;
++(void) getCatalogueBooks:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/catalog/books", API_SERVER];
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_BOOKS_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_BOOKS_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_BOOKS_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - catalogue search
-+(NSDictionary *) catalogueSearch:(NSDictionary *) userData {
-    return nil;
++(void) catalogueSearch:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/catalog/search", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"qry", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_FAILED
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return; 
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_CATALOGUE_SEARCH_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
+    
 }
 
 #pragma mark - inapp purchase
-+(NSDictionary *) bookPurchased:(NSDictionary *) userData {
-    return nil;
++(void) bookPurchased:(NSDictionary *) userData {
+
 }
 
 #pragma mark - transaction history
-+(NSDictionary *) getTransactionHistory:(NSDictionary *) userData {
-    return nil;
++(void) getTransactionHistory:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/txn/history", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"sid",@"did", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return; 
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
+    
 }
 
 #pragma mark - get my books
-+(NSDictionary *) getMyBooks:(NSDictionary *) userData {
-    return nil;
++(void) getMyBooks:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/user/profile/books", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"sid",@"did", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return; 
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - download a book
-+(NSDictionary *) downloadBook:(NSDictionary *) userData {
-    return nil;
++(void) downloadBook:(NSDictionary *) userData {
+
 }
 
 #pragma mark - get Book Details
-+(NSDictionary *) getBookDetails:(NSDictionary *) userData {
-    return nil;
++(void) getBookDetails:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/book/details", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"pid", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_FAILED
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return; 
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - get book summary info
-+(NSDictionary *) getBookSummary:(NSDictionary *) userData {
-    return nil;
++(void) getBookSummary:(NSDictionary *) userData {
+    NSString *url = [NSString stringWithFormat:@"%@/books/summary", API_SERVER];
+    
+    NSArray *fields = [NSArray arrayWithObjects:@"src",@"sid",@"did",@"pids",@"fields", nil];
+    for(NSString *fld in fields) {
+        if (![userData objectForKey:fld]) {
+            NSDictionary *errResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"ec",
+                                     fld,@"em", nil];
+            NSNotification *notificaiton = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_FAILED
+                                                                         object:nil
+                                                                       userInfo:errResp];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notificaiton waitUntilDone:NO];
+            return; 
+        }
+    }
+    
+    NSDictionary *defaultResp = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"ec", 
+                                 @"internal server error", @"em",nil];
+    
+    id respData = [API sendPostRequestTo:url withData:userData];
+    if (!respData) {
+        NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_FAILED
+                                                                     object:nil userInfo:defaultResp];
+        [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+    } else {
+        if ( [[(NSDictionary *)respData objectForKey:@"s"] intValue] == 0) {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_TRANSACTION_HISTORY_RESULT_FAILED
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        } else {
+            NSNotification *notification = [NSNotification notificationWithName:COVNOTIFICATION_GET_BOOK_DETAILS_RESULT_OK
+                                                                         object:nil 
+                                                                       userInfo:[respData objectForKey:@"d"]];
+            [[NSNotificationCenter defaultCenter] postNotificationOnMainThread:notification waitUntilDone:NO];
+        }
+    }
 }
 
 #pragma mark - like a book
-+(NSDictionary *) likeBook:(NSDictionary *) userData {
-    return nil;
++(void) likeBook:(NSDictionary *) userData {
+
 }
 
 #pragma mark - get my likes 
-+(NSDictionary *) getMyLikes:(NSDictionary *) userData {
-    return nil;
++(void) getMyLikes:(NSDictionary *) userData {
+
 }
 
 #pragma mark - unlike a book
-+(NSDictionary *) unlikeBook:(NSDictionary *) userData {
-    return nil;
++(void) unlikeBook:(NSDictionary *) userData {
+
 }
 
 #pragma mark - add a book to wishlist
-+(NSDictionary *) addToWishList:(NSDictionary *) userData {
-    return nil;
++(void) addToWishList:(NSDictionary *) userData {
+
 }
 
 #pragma mark - get my wishlist
-+(NSDictionary *) getMyWishList:(NSDictionary *) userData {
-    return nil;
++(void) getMyWishList:(NSDictionary *) userData {
+
 }
 
 #pragma mark - remove from my wishlist
-+(NSDictionary *) removeFromWishList:(NSDictionary *) userData {
-    return nil;
++(void) removeFromWishList:(NSDictionary *) userData {
+
 }
 
 @end
