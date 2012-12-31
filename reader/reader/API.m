@@ -14,7 +14,8 @@
 #import "NSNotificationCenterAdditions.h"
 
 // TODO: server address should be configurable
-NSString *API_SERVER = @"http://199.189.84.119/japi";
+//NSString *API_SERVER = @"http://199.189.84.119/japi";
+NSString *API_SERVER = @"http://54.235.196.12/japi";
 
 @implementation API
 
@@ -64,6 +65,8 @@ NSString *API_SERVER = @"http://199.189.84.119/japi";
 
 #pragma mark - signup
 +(void) signup:(NSDictionary *) userData {
+
+    
     NSString *URL = [NSString stringWithFormat:@"%@/user/signup", API_SERVER];
     
     NSArray *fields = [NSArray arrayWithObjects:@"src",@"email",@"name",@"pwd",

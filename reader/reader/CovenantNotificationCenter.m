@@ -47,7 +47,7 @@
 }
 
 -(void) testHandler:(NSNotification *) notification {
-    NSLog(@"Got notification... %@", notification);
+   // NSLog(@"Got notification... %@", notification);
 }
 
 -(void) listenForNotifications {
@@ -118,6 +118,7 @@
 
 #pragma mark - get catalog books
 -(void) handleGetCatalogueBooksNotification:(NSNotification *) notification { }
+
 
 #pragma mark - get catalog quick books
 -(void) handleGetCatalogueQuickBooksNotification:(NSNotification *) notification { }

@@ -56,7 +56,8 @@
                             @"40,50",@"pids", 
                             @"title,bid,pid,image-url",@"fields", nil];
     //[API getCatalogueQuickBooks:[NSDictionary dictionaryWithObjectsAndKeys:@"7,8",@"cat_ids",@"5,5",@"counts", nil] ];
-    [API  getBookSummary:d];
+    [API getCatalogue];
+    //[API  getBookSummary:d];
     NSLog(@"Signup Request Made..");
 }
 
