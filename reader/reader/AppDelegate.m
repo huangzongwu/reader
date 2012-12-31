@@ -45,18 +45,29 @@
 }
 
 -(void) doTest {
-    self.notificationCenter = [[CovenantNotificationCenter alloc] init];
-    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:@"a02@a1.com",@"email", 
-                            @"d",@"src",
-                            @"ram",@"name",
-                            @"abc123", @"pwd",
-                            @"simd3",@"did",
-                            @"9667a1647871f26fac68c9c9cc1cdaea", @"sid",
-                            @"1", @"repeat", 
-                            @"40,50",@"pids", 
-                            @"title,bid,pid,image-url",@"fields", nil];
-    //[API getCatalogueQuickBooks:[NSDictionary dictionaryWithObjectsAndKeys:@"7,8",@"cat_ids",@"5,5",@"counts", nil] ];
-    [API getCatalogue];
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    [d setObject:[[NSMutableArray alloc] init] forKey:@"categories"];
+    [d setObject:[[NSMutableArray alloc] init] forKey:@"meta_categories"];
+    [[d objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"7",@"id", @"3",@"level",
+                                                    @"Romance",@"name", @"1",@"position", nil]];
+    [[d objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"8",@"id", @"3",@"level",
+                                               @"Historical",@"name", @"2",@"position", nil]];
+    [[d objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"9",@"id", @"3",@"level",
+                                               @"Drama",@"name", @"3",@"position", nil]];
+    [[d objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"10",@"id", @"3",@"level",
+                                               @"Inspirational",@"name", @"4",@"position", nil]];
+    [[d objectForKey:@"categories"] addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"11",@"id", @"3",@"level",
+                                               @"Suspense",@"name", @"5",@"position", nil]];
+                                               
+    CatalogManager *cm = [[CatalogManager alloc] initWithDBContext:self.managedObjectContext];
+    if (![cm hasData]) {
+        NSLog(@" ! Exists : ");
+    } else {
+        NSLog(@"Exists : ");
+    }
+    
+    [cm setCategories:d];
+    [cm save];
     //[API  getBookSummary:d];
     NSLog(@"Signup Request Made..");
 }

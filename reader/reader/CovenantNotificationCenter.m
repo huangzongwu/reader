@@ -47,7 +47,7 @@
 }
 
 -(void) testHandler:(NSNotification *) notification {
-   // NSLog(@"Got notification... %@", notification);
+   NSLog(@"Got notification... %@", notification);
 }
 
 -(void) listenForNotifications {

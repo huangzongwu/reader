@@ -23,17 +23,16 @@
 -(NSMutableDictionary *) getEmptyObject {
     NSMutableDictionary *obj = [[NSMutableDictionary alloc] init];
     [obj setObject:[[NSMutableArray alloc] init] forKey:@"categories"];
-    [obj setObject:[[NSMutableDictionary alloc] init] forKey:@"cat-tree"];
+    [obj setObject:[[NSMutableArray alloc] init] forKey:@"meta_categories"];
     return obj;
 }
 
 -(NSArray *) getCategories {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     for(NSDictionary *cat in [self.data objectForKey:@"categories"] ) {
-        //NSString *key = [cat objectForKey:@"cid"];
-        //if ([[self.data objectForKey:@"cat-tree"] objectForKey:key] != nil) {
-            [result addObject:cat];
-        //}
+            if ([[cat objectForKey:@"level"] isEqualToString:@"3"]) {
+                [result addObject:cat];
+            }
     }    
     return result;
 }
